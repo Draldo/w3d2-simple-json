@@ -27,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < jsonArray.length(); i++) {
 //                Log.d(TAG, "doMagic: " + i + " " + jsonArray.get(i));
                 jsonObject = new JSONObject(jsonArray.get(i).toString());
-                Log.d(TAG, "doMagic: " + jsonObject.getString("name"));
+                String name = jsonObject.getString("name");
+                String grade = jsonObject.getString("grade");
+                String age = jsonObject.getString("age");
+                Log.d(TAG, "doMagic: " + i + " " + name + " " + grade + " " + age);
             }
         } catch (JSONException e) {
             e.printStackTrace();
