@@ -69,12 +69,25 @@ public class MainActivity extends AppCompatActivity {
     public void doGson(View view) {
         Gson gson = new GsonBuilder().create();
         //Let know the gson helper
-        Type listType = new TypeToken<List<student>>() {}.getType();
+        Type listType = new TypeToken<List<Student>>() {}.getType();
 
-        ArrayList<student> students = gson.fromJson(jsonString, listType);
+        ArrayList<Student> students = gson.fromJson(jsonString, listType);
 
-        for(student std : students){
+        for(Student std : students){
             Log.d(TAG, "doGson: "
+                    + std.name + " "
+                    + std.grade + " "
+                    + std.age + " "
+            );
+        }
+    }
+
+    public void doPojo(View view) {
+        Gson gson = new GsonBuilder().create();
+        Result result = gson.fromJson(jsonComplex,Result.class);
+
+        for(Student std : result.students){
+            Log.d(TAG, "doGsonPojo: "
                     + std.name + " "
                     + std.grade + " "
                     + std.age + " "
